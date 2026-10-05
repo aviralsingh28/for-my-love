@@ -19,13 +19,13 @@ export const CONFIG = {
   MUSIC_SRC: "/music/ours.mp3",
   MUSIC_TITLE: "Our Song",
 
-  // Hero background image (optional). Drop into /public/images/hero.jpg
-  HERO_IMAGE: "/images/hero.png",
+  // Hero background video (optional). Drop into /public/video/
+  HERO_VIDEO: "/video/787FD085-4B48-4558-9C68-7D392A729835.mp4",
 
   // Photo memories — replace with your own paths in /public/images/
   PHOTOS: [
     { src: "/timeline/IMG_8417.jpg", caption: "The first one." }, 
-    { src: "/timeline/IMG_8414.JPG", caption: "That sunset." },
+    { src: "/timeline/IMG_8414.JPG", caption: "That sunset 🌅." },
     { src: "/timeline/b3139284-5fc8-4bc2-bd44-ff4e63603e5e.jpeg", caption: "that ujjain visit 🥺." },
     { src: "/timeline/5b5353ae-396e-44c5-894c-9e71bf818168.png", caption: "padhbhnamyswami mandir however together." },
     { src: "/timeline/IMG_8416.JPG", caption: "You, laughing." },
@@ -34,6 +34,15 @@ export const CONFIG = {
     { src: "/timeline/dc337b52-55b3-40d6-bcf0-c1c40cc6a890.jpeg", caption: "us moment." },
     { src: "/timeline/IMG_8420.jpg", caption: "that bullet ride." },
     { src: "/timeline/IMG_8418.JPG", caption: "that breakfast." },
+    { src: "/timeline/IMG_9255.JPG", caption: "u chulbuli." },
+    { src: "/timeline/IMG_9260.JPG", caption: "sunset and we part 2 🌅." },
+    { src: "/timeline/IMG_6673.JPG", caption: "tekri moment." },
+    { src: "/timeline/IMG_9106.jpeg", caption: "that mandatory lift mirror selfie 🪞." },
+    { src: "/timeline/IMG_9252.JPG", caption: "bs uhi achi lagi yeh 🫶" },
+    { src: "/timeline/IMG_9259.PNG", caption: "our randoms." },
+    { src: "/video/787FD085-4B48-4558-9C68-7D392A729835.mp4", caption: "some of our nautankis." },
+    { src: "/video/IMG_9095.mp4", caption: "u driving." },
+
 
     
   ],
@@ -46,16 +55,19 @@ export const CONFIG = {
     { icon: "💕", title: "Next meetup", text: "25/01/2026, in ambikapur this one was also full of risks we met in cafe rising everything 😂." },
     { icon: "✨", title: "Next", text: "06/03/2026, back from my trip we met in bhopal in station and mai ghussa tha and you made pasta for me the bestest pasta i had in my life 🤌." },
     { icon: "💌", title: "Next", text: "21/03/2026, the most awaited meetup  OUR UJJAIN visit, they say if a couple visited ujjain it means they have a destiny together 🧿." },
+    { icon: "💌", title: "Next", text: "22/09/2026, this one was the bestest one ig vase to hr meetup best hi hote jata hai hamara (thu thu) humne kita kuch exlore kiya kita ghuma tumhara scooty chalana mera driver bnke it was so good ase hi meri seva krte raho baby 🧿." },
     { icon: "💞", title: "and this is today on you birthday", text: "making this memories together & forever." },
+    
   ],
 
   LOVE_NOTES: [
-    "You make ordinary days magical.",
-    "You are my favorite notification.",
-    "I still smile every time I think about you.",
-    "I'll keep choosing you every single day.",
+    "You make ordinary days ladaku and pyara 😂.",
+    "You are my favorite notification or tumhare phn mai to mute rehta hu mai to.",
+    "we fight we fix we stay together or moto chaiye hamare rltn ka.",
+    "I'll keep choosing you every single day or tum mehnat karo fortuner lane ki.",
     "You are home.",
-    "You are my favorite place to be.",
+    "Every place is my favorite when you are there.",
+    "you made me believe in love which i thought was just a fairy tale to me after so much things happened with me but you made me believe.",
     "You are my best friend and my greatest adventure.",
     "i know humne difficulties face karne padenge but i will always be there for you and i want tum bhi vase mera sth do.",
   ],

@@ -65,12 +65,22 @@ export function Hero() {
       <motion.div style={{ y }} className="relative mx-auto max-w-[420px]">
         <div
           className="relative aspect-[3/4] w-full overflow-hidden rounded-[2rem] glass"
-          style={{
-            backgroundImage: `linear-gradient(180deg, transparent 30%, color-mix(in oklab, var(--crimson) 60%, transparent)), url(${CONFIG.HERO_IMAGE})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
         >
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            src={CONFIG.HERO_VIDEO}
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-hidden="true"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(180deg, transparent 30%, color-mix(in oklab, var(--crimson) 60%, transparent))",
+            }}
+          />
           <div className="absolute inset-x-0 bottom-0 p-6 text-white">
             <p className="font-script text-2xl drop-shadow">for {CONFIG.HER_NAME}</p>
             <h1 className="mt-1 font-display text-3xl leading-tight drop-shadow">
@@ -146,6 +156,7 @@ export function LoveCounter() {
 // -------- PHOTO MEMORIES --------
 export function PhotoGallery() {
   const [open, setOpen] = useState<number | null>(null);
+  const isVideo = (src: string) => /\.(mp4|webm|ogg)$/i.test(src);
 
   const burst = () => {
     confetti({
@@ -174,15 +185,24 @@ export function PhotoGallery() {
               className="glass overflow-hidden rounded-2xl p-2 text-left"
               style={{ boxShadow: "0 10px 30px -12px color-mix(in oklab, var(--rose) 50%, transparent)" }}
             >
-              <div
-                className="aspect-square w-full overflow-hidden rounded-xl"
-                style={{
-                  backgroundImage: `url(${p.src})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundColor: "var(--blush)",
-                }}
-              />
+              <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-[color:var(--blush)]">
+                {isVideo(p.src) ? (
+                  <video
+                    src={p.src}
+                    className="h-full w-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                ) : (
+                  <img
+                    src={p.src}
+                    alt={p.caption}
+                    className="h-full w-full object-cover"
+                  />
+                )}
+              </div>
               <p className="mt-2 truncate font-script text-sm text-[color:var(--crimson)]">{p.caption}</p>
             </motion.button>
           ))}
@@ -198,14 +218,29 @@ export function PhotoGallery() {
             className="fixed inset-0 z-[90] grid place-items-center bg-black/70 p-6"
             onClick={() => setOpen(null)}
           >
-            <motion.img
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              src={CONFIG.PHOTOS[open].src}
-              alt={CONFIG.PHOTOS[open].caption}
-              className="max-h-[80vh] max-w-full rounded-2xl shadow-2xl"
-            />
+            {isVideo(CONFIG.PHOTOS[open].src) ? (
+              <motion.video
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                src={CONFIG.PHOTOS[open].src}
+                aria-label={CONFIG.PHOTOS[open].caption}
+                className="max-h-[80vh] max-w-full rounded-2xl shadow-2xl"
+                controls
+                autoPlay
+                playsInline
+                onClick={(event) => event.stopPropagation()}
+              />
+            ) : (
+              <motion.img
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                src={CONFIG.PHOTOS[open].src}
+                alt={CONFIG.PHOTOS[open].caption}
+                className="max-h-[80vh] max-w-full rounded-2xl shadow-2xl"
+              />
+            )}
           </motion.div>
         )}
       </AnimatePresence>
